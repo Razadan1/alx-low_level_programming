@@ -1,9 +1,12 @@
 #include <stdio.h>
 
-int main()
+/*
+ * Main - A program that prints exact the letters.
+ *
+ * Return: returns nothing
+ */
+int main(void)
 {
-	char message[] = "\"Programming is like building a multilingual puzzle\n";
-	puts(message);
-
-	return 0;
+	puts("\"Programming is like building a multilingual puzzle\n");
+	return (0);
 }
