@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-/*
- * Main - A program that prints exact the letters.
+/**
+ * main - A program that prints exact the letters.
  *
  * Return: returns nothing
  */
