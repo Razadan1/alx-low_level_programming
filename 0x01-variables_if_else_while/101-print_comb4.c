@@ -17,16 +17,19 @@ int main(void)
 		d = c + 1;
 		while (d <= 9)
 		{
-			putchar(c + '0');
-			putchar(d + '0');
-			putchar(e + '0');
 			e = c + 1;
-			if (c != 8 || d != 9 || e != 7)
+			while (e <= 9)
 			{
-				putchar(',');
-				putchar(' ');
-			}
+				putchar(c + '0');
+				putchar(d + '0');
+				putchar(e + '0');
+				if (c != 8 || d != 9 || e != 7)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			e++;
+			}
 		d++;
 		}
 	c++;
