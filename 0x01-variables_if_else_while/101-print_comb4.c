@@ -12,23 +12,23 @@ int main(void)
 	int c, d, e;
 
 	c = 0;
-	while (c <= 8)
+	while (c <= 7)
 	{
 		d = c + 1;
-		while (d <= 9)
+		while (d <= 8)
 		{
-			e = c + 1;
+			e = d + 1;
 			while (e <= 9)
 			{
-				putchar(c + '0');
-				putchar(d + '0');
-				putchar(e + '0');
-				if (c != 8 || d != 9 || e != 7)
+				putchar((c % 10) + '0');
+				putchar((d % 10) + '0');
+				putchar((e % 10) + '0');
+				if (c != 7 || d != 8 || e != 9)
 				{
 					putchar(',');
 					putchar(' ');
 				}
-			e++;
+				e++;
 			}
 		d++;
 		}
