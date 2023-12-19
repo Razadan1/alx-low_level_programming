@@ -1,17 +1,24 @@
-#ifndef "MAIN.H"
-#define "Main.H"
+#include "main.h"
 
 /**
  * main - a program that prints _putchar followed by new line
  *
  * warning: do not use printf or puts.
  *
- * warning: you can only use _putchar.
+ * warnings: you can only use _putchar.
  *
  * Return: return nothing
  */
 int main(void)
 {
-	_putchar("_putchar");
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
+	_putchar('\n');
 	return (0);
 }
