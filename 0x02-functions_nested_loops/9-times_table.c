@@ -16,10 +16,13 @@ void times_table(void)
 		mul = 1;
 		while (mul <= 9)
 		{
-			_putchar(',');
-			_putchar(' ');
+			if (mul != 0)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
 			res = num * mul;
-			if (res <= 0)
+			if (res <= 9)
 			{
 				_putchar(' ');
 			}
