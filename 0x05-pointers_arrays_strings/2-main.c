@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 /**
+<<<<<<< HEAD
  *  * main - check the code
  *   *
  *    * Return: Always 0.
@@ -15,4 +16,19 @@ int main(void)
 		        len = _strlen(str);
 			    printf("%d\n", len);
 			        return (0);
+=======
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char *str;
+    int len;
+
+    str = "My first strlen!";
+    len = _strlen(str);
+    printf("%d\n", len);
+    return (0);
+>>>>>>> refs/remotes/origin/master
 }
