@@ -21,10 +21,7 @@ int _atoi(char *s)
 
 		if (s[a] >= '0' && s[a] <= '9')
 		{
-			int maxDiv = INT_MAX / 10;
-			int lastNum = s[a] - '0';
-
-			if (result > maxDiv || (result == maxDiv && lastNum > INT_MAX % 10))
+			if (result > INT_MAX / 10 || (result == INT_MAX / 10 && s[a] - '0' > INT_MAX % 10))
 			{
 				return ((sign == 1) ? INT_MAX : INT_MIN);
 			}
