@@ -10,7 +10,7 @@
 void print_all(const char * const format, ...)
 {
 	unsigned int a = 0;
-	char *separator = " ";
+	char *separator = "";
 
 	va_list print;
 
