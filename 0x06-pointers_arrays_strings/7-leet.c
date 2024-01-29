@@ -1,62 +1,26 @@
 #include "main.h"
 
 /**
-* leet - encodes string to numbers
-* @ptr: character to be transformed
-* Return: return ptr to the encoded value
-*/
+ * leet - encodes string to numbers
+ * @ptr: character to be transformed
+ * Return: return ptr to the encoded value
+ */
 char *leet(char *ptr)
 {
 	char *ltr = ptr;
+	char leetMap[128] = {0};
+
+	leetMap[(unsigned char)'a'] = leetMap[(unsigned char)'A'] = '4';
+	leetMap[(unsigned char)'e'] = leetMap[(unsigned char)'E'] = '3';
+	leetMap[(unsigned char)'o'] = leetMap[(unsigned char)'O'] = '0';
+	leetMap[(unsigned char)'t'] = leetMap[(unsigned char)'T'] = '7';
+	leetMap[(unsigned char)'l'] = leetMap[(unsigned char)'L'] = '1';
 
 	while (*ltr != '\0')
 	{
-		char c = *ltr;
-		if (c >= 'a' && c <= 'z')
+		if (leetMap[(unsigned char)*ltr])
 		{
-			if (c == 'a')
-			{
-				*ltr = '4';
-			}
-			else if (c == 'e')
-			{
-				*ltr = '3';
-			}
-			else if (c == 'o')
-			{
-				*ltr = '0';
-			}
-			else if (c == 't')
-			{
-				*ltr = '7';
-			}
-			else if (c == 'l')
-			{
-				*ltr = '1';
-			}
-		}
-		else if (c >= 'A' && c <= 'Z')
-		{
-			if (c == 'A')
-			{
-				*ltr = '4';
-			}
-			else if (c == 'E')
-			{
-				*ltr = '3';
-			}
-			else if (c == 'O')
-			{
-				*ltr = '0';
-			}
-			else if (c == 'T')
-			{
-				*ltr = '7';
-			}
-			else if (c == 'L')
-			{
-				*ltr = '1';
-			}
+			*ltr = leetMap[(unsigned char)*ltr];
 		}
 		ltr++;
 	}
