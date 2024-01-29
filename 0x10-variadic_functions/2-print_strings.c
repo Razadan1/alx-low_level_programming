@@ -8,7 +8,7 @@
  * @n: the number of arguements
  * Return: return nil if one string is null
  */
-void print_strings(const char *separator, const unsigned int n, ...)
+void print_strings(const char *separator, unsigned int n, ...)
 {
 	unsigned int a;
 
@@ -29,7 +29,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			printf("%s", p);
 		}
 
-		if ((a < n) && (separator != NULL))
+		if ((a < n - 1) && (separator != NULL))
 		{
 			printf("%s", separator);
 		}
