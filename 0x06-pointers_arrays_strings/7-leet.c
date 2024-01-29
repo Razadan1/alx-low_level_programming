@@ -5,15 +5,13 @@
 * @ptr: character to be transformed
 * Return: return ptr to the encoded value
 */
-
 char *leet(char *ptr)
 {
 	char *ltr = ptr;
 
 	while (*ltr != '\0')
 	{
-    char c = *ltr;
-
+		char c = *ltr;
 		if (c >= 'a' && c <= 'z')
 		{
 			if (c == 'a')
