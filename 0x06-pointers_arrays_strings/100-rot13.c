@@ -1,6 +1,5 @@
 #include "main.h"
 #include <ctype.h>
-
 /**
  * rot13 - encodes a string
  * @str: the string to be encoded
@@ -14,13 +13,12 @@ char *rot13(char *str)
 	{
 		char ab = *ptr;
 
-		if (islower(ab))
+		if ((islower(ab) || isupper(ab)) && ((ab >= 'A' && ab <= 'Z')
+				|| (ab >= 'a' && ab <= 'z')))
 		{
-			*ptr = 'a' + (ab - 'a' + 13) % 26;
-		}
-		else if (isupper(ab))
-		{
-			*ptr = 'A' + (ab - 'A' + 13) % 26;
+			char base = (islower(ab)) ? 'a' : 'A';
+			char offset = (ab - base + 13) % 26;
+			*ptr = base + offset;
 		}
 		ptr++;
 	}
