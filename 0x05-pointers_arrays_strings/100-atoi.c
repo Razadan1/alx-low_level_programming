@@ -21,10 +21,7 @@ int _atoi(char *s)
 
 		if (s[a] >= '0' && s[a] <= '9')
 		{
-			int newresult = result > INT_MAX / 10;
-			int anotherresult = result == INT_MAX / 10 && (s[a] - '0');
-
-			if (newresult || (anotherresult) > INT_MAX % 10)
+			if (result > (INT_MAX - (*s - 0) / 10))
 			{
 				return ((sign == 1) ? INT_MAX : INT_MIN);
 			}
