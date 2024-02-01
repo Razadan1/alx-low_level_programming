@@ -13,11 +13,11 @@ void print_diagsums(int *a, int size)
 {
       /*Declaring variables*/
 
-	int a;
+	int i;
 
-	int sum, sum2;
+	int sum1, sum2;
 
-	sum = 0;
+	sum1 = 0;
 	sum2 = 0;
 
 	i = 0;
@@ -25,11 +25,11 @@ void print_diagsums(int *a, int size)
 {
       /*sums for diagsums*/
 
-	sum = sum + *(a + i * size + i);
+	sum1 = sum1 + *(a + i * size + i);
 	sum2 = sum2 + *(a + i * size + size - i - 1);
 
 	i++; /*add +1*/
 }
 
-	printf("%i, %i\n", sum, sum2);
+	printf("%i, %i\n", sum1, sum2);
 }
