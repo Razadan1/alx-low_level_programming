@@ -3,7 +3,7 @@
 /**
  * print_chessboard - print the chessboard, 2d array
  * @a: 2d array of chars
- * Return: return void
+ * Return: void
  */
 
 void print_chessboard(char (*a)[8])
@@ -11,20 +11,20 @@ void print_chessboard(char (*a)[8])
 {
       /*Declaring variables*/
 
-	int a, b;
+	int i, j;
 
-	a = 0;
+	i = 0;
 
-	while (a < 8) /*number repetitions*/
+	while (i < 8) /*number repetitions*/
 
 {
-	b = 0;
-	while (b < 8)
+	j = 0;
+	while (j < 8)
 {
-	_putchar (a[a][b]);
-	b++;
+	_putchar (a[i][j]);
+	j++;
 }
 	_putchar ('\n'); /*print new line*/
-	a++; /*add +1*/
+	i++; /*add +1*/
 }
 }
