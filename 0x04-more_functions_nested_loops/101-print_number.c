@@ -18,10 +18,6 @@ void print_number(int n)
 		_putchar('0');
 		return;
 	}
-	if (n == NULL)
-    {
-		return;
-    }
 
 	divider = 1;
 
