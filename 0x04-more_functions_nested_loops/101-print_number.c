@@ -6,7 +6,7 @@
 */
 void print_number(int n)
 {
-	int divider;
+	unsigned int divider;
 
 	if (n < 0)
 	{
@@ -28,7 +28,7 @@ void print_number(int n)
 
 	while (divider != 0)
 	{
-		int num = n / divider;
+		unsigned int num = n / divider;
 
 		_putchar(num + '0');
 		n %= divider;
