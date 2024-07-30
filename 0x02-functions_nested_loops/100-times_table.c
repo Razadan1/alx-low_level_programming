@@ -1,37 +1,47 @@
 #include "main.h"
-
 /**
- * print_times_table - print n times table
- *
- * @n: the multiplication number
- *
- * Return: return 0
+ * print_times_table - prints the times table for n.
+ * @n: The multiplication table requested.
+ * Return: Nothing.
  */
 void print_times_table(int n)
 {
-	int mult, res;
+	int i, j, res;
 
-	while (n <= 14)
+	if (!(n > 15 || n < 0))
 	{
-		if (n < 0 && n > 15)
-			break;
-		mult = 1;
-		while (mult <= 12)
+		for (i = 0; i <= n; i++)
 		{
-			if (mult != 0)
+			for (j = 0; j <= n; j++)
 			{
-				_putchar(',');
-				_putchar(' ');
+				res = (i * j);
+				if (j != 0)
+				{
+					_putchar(',');
+					_putchar(' ');
+				}
+				if (res < 10 && j != 0)
+				{
+					_putchar(' ');
+					_putchar(' ');
+					_putchar((res % 10) + '0');
+				}
+				else if (res >= 10 && res < 100)
+				{
+					_putchar(' ');
+					_putchar((res / 10) + '0');
+					_putchar((res % 10) + '0');
+				}
+				else if (res >= 100 && j != 0)
+				{
+					_putchar((res / 100) + '0');
+					_putchar((res / 10) % 10 + '0');
+					_putchar((res % 10) + '0');
+				}
+				else
+					_putchar((res % 10) + '0');
 			}
-			res = mult * n;
-			if (res <= 144)
-				_putchar(' ');
-			else
-				_putchar((res / 100) + '0');
-			_putchar((res % 10) + '0');
-			mult++;
+			_putchar('\n');
 		}
-		_putchar('\n');
-		n++;
 	}
 }
