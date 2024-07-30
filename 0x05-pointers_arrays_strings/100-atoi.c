@@ -1,38 +1,46 @@
 #include "main.h"
-#include <limits.h>
 
 /**
  * _atoi - converts a string to an integer
- * @s: the sstring to be converted to integer
- * Return: return nothing
+ * @s: string to be converted
+ *
+ * Return: the int converted from the string
  */
 int _atoi(char *s)
 {
-	int sign = 1;
-	int result = 0;
-	int a;
+	int i, d, n, len, f, digit;
 
-	for (a = 0; s[a] != '\0'; ++a)
+	i = 0;
+	d = 0;
+	n = 0;
+	len = 0;
+	f = 0;
+	digit = 0;
+
+	while (s[len] != '\0')
+		len++;
+
+	while (i < len && f == 0)
 	{
-		if (s[a] == '-')
-		{
-			sign *= -1;
-		}
+		if (s[i] == '-')
+			++d;
 
-		if (s[a] >= '0' && s[a] <= '9')
+		if (s[i] >= '0' && s[i] <= '9')
 		{
-			if (result > INT_MAX / 10 || (result == INT_MAX / 10 && s[a] - '0' > INT_MAX % 10))
-			{
-				return ((sign == 1) ? INT_MAX : INT_MIN);
-			}
-			result = result * 10 + (s[a] - '0');
+			digit = s[i] - '0';
+			if (d % 2)
+				digit = -digit;
+			n = n * 10 + digit;
+			f = 1;
+			if (s[i + 1] < '0' || s[i + 1] > '9')
+				break;
+			f = 0;
 		}
-
-		if (result != 0 && (s[a] < '0' || s[a] > '9'))
-		{
-			break;
-		}
+		i++;
 	}
 
-	return (result * sign);
+	if (f == 0)
+		return (0);
+
+	return (n);
 }
