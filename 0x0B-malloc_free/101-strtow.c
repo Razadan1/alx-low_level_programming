@@ -1,59 +1,105 @@
 #include "main.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdbool.h>
-#define DELIMETER ' '
-/**
- * is_delimeter - this function cheks if a character is
- * a delimeter
- * @c: character to be checked
- * Return: return True if character is a delimeter
- * and False Otherwise
-*/
-bool is_delimeter(char c)
-{
-	return (c == DELIMETER);
-}
+
 
 /**
- * strtow - slips strings into words
- * @str: string array to be splitted
- * Return: returns a pointer to the splitted words
+ * strtow - splits a string into words
+ * @str: string of words to be split
+ * Return: double pointer to strings
  */
 char **strtow(char *str)
 {
-	int words_count, i, index;
+	char **ptr;
+	int i, k, len, start, end, j = 0;
+	int words =  countWords(str);
 
-	char **words_array;
-
-	char *the_token;
-
-	if (str == NULL || *str == '\0')
+	if (!str || !countWords(str))
 		return (NULL);
-
-	words_count = 0;
-
-	for (i = 0; str[i] != '\0'; i++)
+	ptr = malloc(sizeof(char *) * (words + 1));
+	if (!ptr)
+		return (NULL);
+	for (i = 0; i < words; i++)
 	{
-		if (!(is_delimeter(str[i])) && (i == 0 || is_delimeter(str[i - 1])))
-		words_count++;
+		start = startIndex(str, j);
+		end = endIndex(str, start);
+		len = end - start;
+		ptr[i] = malloc(sizeof(char) * (len + 1));
+		if (!ptr[i])
+		{
+			i -= 1;
+			while (i >= 0)
+			{
+				free(ptr[i]);
+					i--;
+			}
+			free(ptr);
+			return (NULL);
+		}
+		for (k = 0; k < len; k++)
+			ptr[i][k] = str[start++];
+		ptr[i][k++] = '\0';
+		j = end + 1;
 	}
-	words_array = (char **)malloc((words_count + 1) * sizeof(char *));
+	ptr[i] = NULL;
+	return (ptr);
+}
 
-	if (words_array == NULL)
-		return (NULL);
-	token = strtok(str, " ");
+/**
+ * isSpace - determines if character is a space or not
+ * @c: input char
+ * Return: 1 if true or 0 or not
+ */
+int isSpace(char c)
+{
+	return (c == ' ');
+}
 
-	index = 0;
+/**
+ * startIndex - returns first index of non-space char
+ * @s: input string
+ * @index: starting index
+ * Return: index of first non-space char
+ */
+int startIndex(char *s, int index)
+{
 
-	while (token != NULL)
-	{
-		words_array[index] = token;
-
+	while (isSpace(*(s + index)))
 		index++;
-		token = strtok(NULL, " ");
-	}
-	words_array[index] = NULL;
+	return (index);
+}
 
-	return (words_array);
+/**
+ * endIndex - returns last index of non-space char
+ * @s: input string
+ * @index: starting index
+ * Return: index of last index of non-space char
+ */
+int endIndex(char *s, int index)
+{
+	while (!isSpace(*(s + index)))
+		index++;
+	return (index);
+}
+
+/**
+ * countWords - counts numbers of words in string
+ * @s: input string
+ * Return: number of words
+ */
+int countWords(char *s)
+{
+	int wordOn = 0;
+	int words = 0;
+
+	while (*s)
+	{
+		if (isSpace(*s) && wordOn)
+			wordOn = 0;
+		else if (!isSpace(*s) && !wordOn)
+		{
+			wordOn = 1;
+			words++;
+		}
+		s++;
+	}
+	return (words);
 }
