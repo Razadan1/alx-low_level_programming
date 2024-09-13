@@ -1,9 +1,0 @@
-#!/usr/bin/bash
-echo "The file you want to add: " 
-read files
-if [ "$files" = "." ]
-then
-    git add .
-else 
-    git add $files
-fi
