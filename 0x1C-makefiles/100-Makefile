@@ -27,7 +27,7 @@ fclean: clean oclean
 re: fclean all
 
 # Ensure header file m.h is required for compilation
-$(OBJ): m.h
+$(SRC): m.h
 
 # Prevent Makefile from being affected by files with same name as rules
 .PHONY: all clean oclean fclean re
